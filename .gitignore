@@ -1,0 +1,4 @@
+/target
+/gen
+# Built app: published as a GitHub Release download, not committed
+/*.exe

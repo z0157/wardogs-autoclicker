@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wardogs AutoClicker 4.20</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="picking">
+  <div class="backdrop" aria-hidden="true">
+    <span class="camo c1"></span><span class="camo c2"></span><span class="camo c3"></span>
+    <span class="camo c4"></span><span class="camo c5"></span><span class="camo c6"></span>
+    <span class="hatch"></span>
+  </div>
+
+  <header class="titlebar" data-tauri-drag-region>
+    <div class="lights">
+      <button class="light l-close" id="btnClose" title="Close"><svg viewBox="0 0 10 10"><path d="M3 3l4 4M7 3l-4 4"/></svg></button>
+      <button class="light l-min" id="btnMin" title="Minimize"><svg viewBox="0 0 10 10"><path d="M2.5 5h5"/></svg></button>
+      <button class="light l-pin" id="btnPin" title="Keep on top"><svg viewBox="0 0 10 10"><path d="M5 2.5v5M2.5 5h5"/></svg></button>
+    </div>
+    <div class="brand" data-tauri-drag-region><b>WARDOGS</b><span>AutoClicker 4.20</span></div>
+    <div class="game-wrap" data-tauri-drag-region><span class="game-pill" id="gamePill"><i></i><span id="gameText">Waiting</span></span></div>
+  </header>
+
+  <!-- Shown until WARDOGS is found -->
+  <section class="picker" id="picker">
+    <div class="glass picker-card">
+      <div class="radar" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+      <h1>Waiting for WARDOGS</h1>
+      <p class="lead">Start the game and this connects by itself. Nothing works until it does.</p>
+      <div class="hover-pill" id="hoverPill"><span class="dot"></span><span id="hoverText">Or click the game window to use it</span></div>
+      <p class="fine">That click only picks the window. It isn't sent to the game.</p>
+      <button class="btn" id="pickerCancel" hidden>Cancel</button>
+    </div>
+  </section>
+
+  <main class="app">
+    <div class="section-label"><span>Choose your team</span><button class="link" id="btnChangeGame">Change game window</button></div>
+    <div class="teams" id="teams"></div>
+
+    <button class="join" id="btnJoin">
+      <span class="join-main"><span id="joinLabel">JOIN LONESTAR</span><kbd id="joinKey">F6</kbd></span>
+      <span class="join-sub" id="joinSub"></span>
+    </button>
+    <p class="join-note" id="joinNote"></p>
+
+    <div class="glass party-card" id="partyCard">
+      <div class="party-head"><h2>Party</h2><span class="party-status" id="partyStatus"><i></i><span>Join as a group</span></span></div>
+
+      <div id="partySolo">
+        <label class="name-row"><span>Playing as</span><input id="nameInput" maxlength="24" spellcheck="false" aria-label="Your name"></label>
+        <div class="party-actions">
+          <button class="btn strong" id="btnCreate">Create party</button>
+          <div class="code-join"><input id="codeInput" maxlength="7" placeholder="CODE" spellcheck="false" aria-label="Party code"><button class="btn" id="btnJoinParty">Join</button></div>
+        </div>
+        <p class="party-fine">The leader picks the team and presses JOIN, and everyone's app follows. Synced through ntfy.sh, a free public relay. Only names, the team pick and JOIN spots are sent.</p>
+      </div>
+
+      <div id="partyOn" hidden>
+        <div class="code-row">
+          <div class="code-box"><span class="code-label">Code</span><span class="code" id="partyCode"></span></div>
+          <button class="btn" id="btnCopyCode">Copy</button>
+          <button class="btn ghost" id="btnLeave">Leave</button>
+        </div>
+        <p class="party-role" id="partyRole"></p>
+        <div class="members" id="members"></div>
+      </div>
+    </div>
+
+    <div class="glass keys-card">
+      <div class="keys-head"><h2>Keys</h2><span>Click one to change it</span></div>
+      <div class="keys" id="keys"></div>
+    </div>
+    <p class="hint">Ctrl / Alt / Shift combos and mouse side buttons work. Backspace clears a key, Esc cancels. Keys only respond while WARDOGS or this window is in front.</p>
+
+    <footer class="foot">
+      <label class="sound"><button class="switch sm" data-bind="general.sound" role="switch"></button>Sound cues</label>
+      <span class="warn" title="WARDOGS EULA §14.1(b)">WARDOGS' EULA bans tools that simulate input. Use at your own risk.</span>
+    </footer>
+  </main>
+
+  <div class="sheet-wrap" id="sheet">
+    <div class="glass sheet">
+      <div class="sheet-icon"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6"/><circle cx="10" cy="10" r="1.6" class="fill"/><path d="M10 1.5v3M10 15.5v3M1.5 10h3M15.5 10h3"/></svg></div>
+      <h3 id="sheetTitle"></h3>
+      <p id="sheetText"></p>
+      <div class="sheet-live" id="sheetLive"><span id="livePos">Move your mouse</span></div>
+      <p class="kbd-hints">Click to save · <kbd id="capKey">Enter</kbd> uses the cursor · <kbd>Esc</kbd> cancels</p>
+      <button class="btn" id="sheetCancel">Cancel</button>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
