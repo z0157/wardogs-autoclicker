@@ -4,6 +4,13 @@
 
 <p align="center">Team joiner, party sync, auto-run and auto-revive for <b>WARDOGS</b> on Windows 10 and 11.</p>
 
+## What it's for
+
+This tool is only for **ease-of-use features** and a **party system to play with friends**.
+
+- **The auto clicker only runs while you're selecting a team.** It clicks your faction's card on the SELECT FACTION screen and refuses to click anywhere else. If that screen isn't showing, it does nothing, and it stops as soon as the screen closes.
+- Nothing in it aims, shoots, or gives you information other players don't have. It never reads or changes the game's memory or files.
+
 > [!WARNING]
 > WARDOGS' EULA bans tools that simulate or replace human input (§14.1(b)) and the distribution of automation software (§5.2(r)). Using this app can get your account suspended or banned. Use it at your own risk. This is an unofficial fan project, not affiliated with Bulkhead or Team17.
 
